@@ -240,7 +240,7 @@ namespace OCR
         /// <param name="bmp">Зображення для розпізнавання</param>
         /// <param name="allowedChars">Список дозволених символів</param>
         /// <param name="textColor">Колір, яким написаний текст</param>
-        public string RecognizeText(ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
+        public string RecognizeText(Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
         {
             if (!loaded) Load();
 
@@ -311,32 +311,32 @@ namespace OCR
             return result;
         }
 
-        public string RecognizeText(ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
+        public string RecognizeText(Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
         {
-            return RecognizeText(ref bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
+            return RecognizeText(bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
         }
 
         /// <summary>Розпінає текст</summary>
         /// <param name="bmp">Зображення для розпізнавання</param>
         /// <param name="allowedChars">Список дозволених символів</param>
-        public string RecognizeText(ref Bitmap bmp, char[] allowedChars)
+        public string RecognizeText(Bitmap bmp, char[] allowedChars)
         {
-            return RecognizeText(ref bmp, allowedChars, Color.Empty, 0, 0);
+            return RecognizeText(bmp, allowedChars, Color.Empty, 0, 0);
         }
 
         /// <summary>Розпінає текст</summary>
         /// <param name="bmp">Зображення для розпізнавання</param>
         /// <param name="textColor">Колір, яким написаний текст</param>
-        public string RecognizeText(ref Bitmap bmp, Color textColor)
+        public string RecognizeText(Bitmap bmp, Color textColor)
         {
-            return RecognizeText(ref bmp, null, textColor, 0, 0);
+            return RecognizeText(bmp, null, textColor, 0, 0);
         }
 
         /// <summary>Розпінає текст</summary>
         /// <param name="bmp">Зображення для розпізнавання</param>
-        public string RecognizeText(ref Bitmap bmp)
+        public string RecognizeText(Bitmap bmp)
         {
-            return RecognizeText(ref bmp, null);
+            return RecognizeText(bmp, null);
         }
 
         public void TrimBy(char c, int addToTop, int addToBottom)

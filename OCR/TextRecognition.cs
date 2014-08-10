@@ -57,14 +57,14 @@ namespace OCR
             TrimAllBy(trimBy, 0, 0);
         }
 
-        public string Recognize(string[] fontNames, ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
+        public string Recognize(string[] fontNames, Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
         {
             Color color = textColor;
 
             foreach (string font in fontNames)
             {
                 Bitmap newBmp = new Bitmap(bmp);
-                string res = Recognize(font, ref newBmp, allowedChars, color, maxDiff, maxColorDiff, expand);
+                string res = Recognize(font, newBmp, allowedChars, color, maxDiff, maxColorDiff, expand);
                 newBmp.Dispose();
 
                 if (res != "") return res;
@@ -73,53 +73,53 @@ namespace OCR
             return "";
         }
 
-        public string Recognize(string[] fontNames, ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
+        public string Recognize(string[] fontNames, Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
         {
-            return Recognize(fontNames, ref bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
+            return Recognize(fontNames, bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
         }
 
-        public string Recognize(string fontName, ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
+        public string Recognize(string fontName, Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff, Size expand)
         {
             Font font = GetFont(fontName);
 
             if (font == null) return "";
 
-            return font.RecognizeText(ref bmp, allowedChars, textColor, maxDiff, maxColorDiff, expand);
+            return font.RecognizeText(bmp, allowedChars, textColor, maxDiff, maxColorDiff, expand);
         }
 
-        public string Recognize(string fontName, ref Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
+        public string Recognize(string fontName, Bitmap bmp, char[] allowedChars, Color textColor, object maxDiff, int maxColorDiff)
         {
-            return Recognize(fontName, ref bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
+            return Recognize(fontName, bmp, allowedChars, textColor, maxDiff, maxColorDiff, new Size(0, 0));
         }
 
-        public string Recognize(string[] fontNames, ref Bitmap bmp, char[] allowedChars)
+        public string Recognize(string[] fontNames, Bitmap bmp, char[] allowedChars)
         {
-            return Recognize(fontNames, ref bmp, allowedChars, Color.Empty, 0, 0);
+            return Recognize(fontNames, bmp, allowedChars, Color.Empty, 0, 0);
         }
 
-        public string Recognize(string fontName, ref Bitmap bmp, char[] allowedChars)
+        public string Recognize(string fontName, Bitmap bmp, char[] allowedChars)
         {
-            return Recognize(fontName, ref bmp, allowedChars, Color.Empty, 0, 0);
+            return Recognize(fontName, bmp, allowedChars, Color.Empty, 0, 0);
         }
 
-        public string Recognize(string[] fontNames, ref Bitmap bmp, Color textColor)
+        public string Recognize(string[] fontNames, Bitmap bmp, Color textColor)
         {
-            return Recognize(fontNames, ref bmp, null, textColor, 0, 0);
+            return Recognize(fontNames, bmp, null, textColor, 0, 0);
         }
 
-        public string Recognize(string fontName, ref Bitmap bmp, Color textColor)
+        public string Recognize(string fontName, Bitmap bmp, Color textColor)
         {
-            return Recognize(fontName, ref bmp, null, textColor, 0, 0);
+            return Recognize(fontName, bmp, null, textColor, 0, 0);
         }
 
-        public string Recognize(string[] fontNames, ref Bitmap bmp)
+        public string Recognize(string[] fontNames, Bitmap bmp)
         {
-            return Recognize(fontNames, ref bmp, null, Color.Empty, 0, 0);
+            return Recognize(fontNames, bmp, null, Color.Empty, 0, 0);
         }
 
-        public string Recognize(string fontName, ref Bitmap bmp)
+        public string Recognize(string fontName, Bitmap bmp)
         {
-            return Recognize(fontName, ref bmp, null, Color.Empty, 0, 0);
+            return Recognize(fontName, bmp, null, Color.Empty, 0, 0);
         }
 
         public TextRecognition()
