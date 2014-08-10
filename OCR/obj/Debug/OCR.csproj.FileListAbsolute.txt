@@ -1,0 +1,7 @@
+E:\Work\Projects\github\OCR\OCR\obj\Debug\OCR.csprojResolveAssemblyReference.cache
+E:\Work\Projects\github\OCR\OCR\bin\Debug\OCR.dll
+E:\Work\Projects\github\OCR\OCR\bin\Debug\OCR.pdb
+E:\Work\Projects\github\OCR\OCR\bin\Debug\GraphicsProcessor.dll
+E:\Work\Projects\github\OCR\OCR\bin\Debug\GraphicsProcessor.pdb
+E:\Work\Projects\github\OCR\OCR\obj\Debug\OCR.dll
+E:\Work\Projects\github\OCR\OCR\obj\Debug\OCR.pdb
