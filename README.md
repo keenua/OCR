@@ -3,7 +3,7 @@ OCR
 
 C# optical character recognition library
 
-A simple example (you can use the your_image.bmp from the repository)
+A simple example (you can use the [your_image.bmp](your_image.bmp) from the repository)
 
 ```C#
 // OCR engine
